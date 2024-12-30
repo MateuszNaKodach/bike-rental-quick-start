@@ -46,10 +46,12 @@
         <dependency>
             <groupId>org.axonframework</groupId>
             <artifactId>axon-spring-boot-starter</artifactId>
+            <version>${axon.version}</version>
         </dependency>
         <dependency>
             <groupId>org.axonframework</groupId>
             <artifactId>axon-test</artifactId>
+            <version>${axon.version}</version>
             <scope>test</scope>
         </dependency>
         <!-- end::deps-axonframework[] -->
@@ -57,6 +59,7 @@
         <dependency>
             <groupId>org.axonframework</groupId>
             <artifactId>axon-micrometer</artifactId>
+            <version>${axon.version}</version>
         </dependency>
         <!-- end::deps-axon-micrometer[] -->
         <!-- tag::deps-axon-firestarter[] -->

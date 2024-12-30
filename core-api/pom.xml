@@ -27,6 +27,7 @@
         <dependency>
             <groupId>org.axonframework</groupId>
             <artifactId>axon-modelling</artifactId>
+            <version>${axon.version}</version>
         </dependency>
         <!-- end::deps-axon-modelling[] -->
     </dependencies>
