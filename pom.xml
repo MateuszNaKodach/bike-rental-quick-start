@@ -44,7 +44,7 @@
 		<java.version>21</java.version>
 		<!-- end::props-java21[] -->
 		<!-- tag::props-axonframework[] -->
-        <axon.version>4.9.4</axon.version>
+        <axon.version>4.11.0-SNAPSHOT</axon.version>
 		<!-- end::props-axonframework[] -->
 		<!-- tag::props-axoniq-console-client[] -->
 		<console-framework-client.version>1.7.3</console-framework-client.version>
@@ -56,13 +56,28 @@
     <dependencyManagement>
         <dependencies>
             <!-- tag::deps-axon-bom[] -->
-            <dependency>
-                <groupId>org.axonframework</groupId>
-                <artifactId>axon-bom</artifactId>
-                <version>${axon.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>org.axonframework</groupId>-->
+<!--                <artifactId>axon-bom</artifactId>-->
+<!--                <version>4.10.4</version>-->
+<!--                <type>pom</type>-->
+<!--                <scope>import</scope>-->
+<!--            </dependency>-->
+			<dependency>
+				<groupId>org.axonframework</groupId>
+				<artifactId>axon-messaging</artifactId>
+				<version>${axon.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.axonframework</groupId>
+				<artifactId>axon-spring-boot-autoconfigure</artifactId>
+				<version>${axon.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.axonframework</groupId>
+				<artifactId>axon-spring-boot-starter</artifactId>
+				<version>${axon.version}</version>
+			</dependency>
             <!-- end::deps-axon-bom[] -->
 			<!-- tag::deps-axon-firestarter[] -->
 			<dependency>
