@@ -28,25 +28,27 @@ public class BikeStatusProjection {
     //tag::BikeRegisteredEventHandler[]
     @EventHandler //<.>
     public void on(BikeRegisteredEvent event) { //<.>
-        var bikeStatus = new BikeStatus(event.bikeId(), event.bikeType(), event.location()); //<.>
-        bikeStatusRepository.save(bikeStatus); //<.>
-        //tag::UpdateEmitter[]
-        updateEmitter.emit(q -> "findAll".equals(q.getQueryName()), bikeStatus); //<.>
+        throw new IllegalStateException("EXPERIMENT EXCEPTION");
+//        var bikeStatus = new BikeStatus(event.bikeId(), event.bikeType(), event.location()); //<.>
+//        bikeStatusRepository.save(bikeStatus); //<.>
+//        //tag::UpdateEmitter[]
+//        updateEmitter.emit(q -> "findAll".equals(q.getQueryName()), bikeStatus); //<.>
         //end::UpdateEmitter[]
     }
 
     //end::BikeRegisteredEventHandler[]
     @EventHandler
     public void on(BikeRequestedEvent event) {
-        bikeStatusRepository.findById(event.bikeId())
-                            .map(bs -> {
-                                bs.requestedBy(event.renter());
-                                return bs;
-                            })
-                            .ifPresent(bs -> {
-                                updateEmitter.emit(q -> "findAll".equals(q.getQueryName()), bs);
-                                updateEmitter.emit(String.class, event.bikeId()::equals, bs);
-                            });
+        throw new IllegalStateException("EXPERIMENT EXCEPTION");
+//        bikeStatusRepository.findById(event.bikeId())
+//                            .map(bs -> {
+//                                bs.requestedBy(event.renter());
+//                                return bs;
+//                            })
+//                            .ifPresent(bs -> {
+//                                updateEmitter.emit(q -> "findAll".equals(q.getQueryName()), bs);
+//                                updateEmitter.emit(String.class, event.bikeId()::equals, bs);
+//                            });
     }
 
     @EventHandler

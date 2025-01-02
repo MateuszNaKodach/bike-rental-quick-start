@@ -56,7 +56,8 @@ public class PaymentStatusProjection {
 
     @EventHandler
     public void handle(PaymentConfirmedEvent event) {
-        paymentStatusRepository.findById(event.paymentId()).ifPresent(s -> s.setStatus(APPROVED));
+//        paymentStatusRepository.findById(event.paymentId()).ifPresent(s -> s.setStatus(APPROVED));
+        throw new IllegalArgumentException("EXPERIMENT EXCEPTION!!! PaymentConfirmedEvent is not handled!!!");
     }
 
     @EventHandler

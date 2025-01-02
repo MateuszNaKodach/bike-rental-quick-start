@@ -79,6 +79,36 @@
 				<version>${axon.version}</version>
 			</dependency>
 			<dependency>
+				<groupId>org.axonframework</groupId>
+				<artifactId>axon-spring</artifactId>
+				<version>${axon.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.axonframework</groupId>
+				<artifactId>axon-configuration</artifactId>
+				<version>${axon.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.axonframework</groupId>
+				<artifactId>axon-disruptor</artifactId>
+				<version>${axon.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.axonframework</groupId>
+				<artifactId>axon-eventsourcing</artifactId>
+				<version>${axon.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.axonframework</groupId>
+				<artifactId>axon-modelling</artifactId>
+				<version>${axon.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.axonframework</groupId>
+				<artifactId>axon-server-connector</artifactId>
+				<version>${axon.version}</version>
+			</dependency>
+			<dependency>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-starter-security</artifactId>
 			</dependency>

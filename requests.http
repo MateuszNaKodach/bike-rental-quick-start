@@ -3,7 +3,7 @@ POST {{rental}}/bikes?bikeType=city&location=Utrecht
 
 ### Generate bikes
 # First, generate some bikes
-POST {{rental}}/bikes/batch?count=60&type=city
+POST {{rental}}/bikes/batch?count=1&type=city
 Accept: application/json
 
 ### List all
@@ -13,7 +13,7 @@ Accept: application/json
 
 ### Bike status
 # Show bike status
-GET {{rental}}/bikes/f6dd253e-8398-48c3-b7f1-49c52c21c594
+GET {{rental}}/bikes/f351fe67-bc45-40a1-b1d3-02f87ce85106
 Accept: application/json
 
 ### Request Bike

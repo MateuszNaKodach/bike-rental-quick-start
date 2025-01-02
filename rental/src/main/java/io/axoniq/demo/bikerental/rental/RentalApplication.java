@@ -12,6 +12,7 @@ import org.axonframework.config.ConfigurationScopeAwareProvider;
 import org.axonframework.config.ConfigurerModule;
 import org.axonframework.deadline.DeadlineManager;
 import org.axonframework.deadline.SimpleDeadlineManager;
+import org.axonframework.eventhandling.PropagatingErrorHandler;
 import org.axonframework.eventhandling.tokenstore.jpa.TokenEntry;
 import org.axonframework.messaging.StreamableMessageSource;
 import org.axonframework.modelling.saga.repository.jpa.SagaEntry;
@@ -38,10 +39,11 @@ public class RentalApplication {
     //when attempting to send a command
     //https://docs.axoniq.io/reference-guide/axon-framework/axon-framework-commands/infrastructure#retryscheduler
     @Bean
-    public CommandGateway commandGatewayWithRetry(CommandBus commandBus){
+    public CommandGateway commandGatewayWithRetry(CommandBus commandBus) {
 
         ScheduledExecutorService scheduledExecutorService = Executors.newScheduledThreadPool(5);
-        IntervalRetryScheduler rs = IntervalRetryScheduler.builder().retryExecutor(scheduledExecutorService).maxRetryCount(5).retryInterval(1000).build();
+        IntervalRetryScheduler rs = IntervalRetryScheduler.builder().retryExecutor(scheduledExecutorService)
+                                                          .maxRetryCount(5).retryInterval(1000).build();
         return DefaultCommandGateway.builder().commandBus(commandBus).retryScheduler(rs).build();
     }
 
@@ -71,6 +73,7 @@ public class RentalApplication {
     public ConfigurerModule eventProcessingCustomizer() {
         return configurer -> configurer
                 .eventProcessing()
+                .registerDefaultListenerInvocationErrorHandler(c -> PropagatingErrorHandler.INSTANCE)
                 .registerPooledStreamingEventProcessor(
                         "PaymentSagaProcessor",
                         Configuration::eventStore,
@@ -83,6 +86,8 @@ public class RentalApplication {
                         "io.axoniq.demo.bikerental.rental.query",
                         Configuration::eventStore,
                         (c, b) -> b.workerExecutor(workerExecutorService())
+                                   .initialSegmentCount(1)
+                                   .maxClaimedSegments(1)
                                    .batchSize(100)
                 );
     }
