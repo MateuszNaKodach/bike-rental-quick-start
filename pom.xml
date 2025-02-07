@@ -44,7 +44,7 @@
 		<java.version>21</java.version>
 		<!-- end::props-java21[] -->
 		<!-- tag::props-axonframework[] -->
-		<axon.version>4.11.0-SNAPSHOT</axon.version>
+		<axon.version>4.10.3</axon.version>
 		<!-- end::props-axonframework[] -->
 		<!-- tag::props-axoniq-console-client[] -->
 		<console-framework-client.version>1.7.3</console-framework-client.version>
