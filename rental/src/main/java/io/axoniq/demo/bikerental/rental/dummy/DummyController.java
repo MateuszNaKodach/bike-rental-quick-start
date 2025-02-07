@@ -1,7 +1,8 @@
 package io.axoniq.demo.bikerental.rental.dummy;
 
-import io.axoniq.demo.bikerental.payment.DummyQuery;
-import io.axoniq.demo.bikerental.payment.DummyQueryResponse;
+import io.axoniq.demo.bikerental.coreapi.payment.dummy.DummyQuery;
+import io.axoniq.demo.bikerental.coreapi.payment.dummy.DummyQueryResponse;
+import org.axonframework.messaging.responsetypes.ResponseTypes;
 import org.axonframework.queryhandling.QueryGateway;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,8 +32,9 @@ public class DummyController {
         var dummyQuery = new DummyQuery();
         try {
             var resultOpt = queryGateway.query(
+                    "dummy",
                     dummyQuery,
-                    DummyQueryResponse.class
+                    ResponseTypes.instanceOf(DummyQueryResponse.class)
             );
             var result = resultOpt.get(60L, TimeUnit.SECONDS);
             logger.info("INVESTIGATION Query executed...");
