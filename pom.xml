@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<!-- tag::spring-boot-starter-parent[] 2.7.18 -->
@@ -31,38 +31,38 @@
 		<module>core-api</module>
 		<!-- end::mod-core-api[] -->
 		<!-- tag::mod-microservices[] -->
-        <module>microservices</module>
-        <!-- end::mod-microservices[] -->
+		<module>microservices</module>
+		<!-- end::mod-microservices[] -->
 	</modules>
 	<!-- end::modules[] -->
 
 	<!-- tag::properties[] -->
-    <properties>
+	<properties>
 		<!-- tag::props-java21[] -->
 		<maven.compiler.source>21</maven.compiler.source>
 		<maven.compiler.target>21</maven.compiler.target>
 		<java.version>21</java.version>
 		<!-- end::props-java21[] -->
 		<!-- tag::props-axonframework[] -->
-        <axon.version>4.11.0-SNAPSHOT</axon.version>
+		<axon.version>4.11.0-SNAPSHOT</axon.version>
 		<!-- end::props-axonframework[] -->
 		<!-- tag::props-axoniq-console-client[] -->
 		<console-framework-client.version>1.7.3</console-framework-client.version>
 		<!-- end::props-axoniq-console-client[] -->
-    </properties>
+	</properties>
 	<!-- end::properties[] -->
 
-    <!-- tag::dependencyManagement[] -->
-    <dependencyManagement>
-        <dependencies>
-            <!-- tag::deps-axon-bom[] -->
-<!--            <dependency>-->
-<!--                <groupId>org.axonframework</groupId>-->
-<!--                <artifactId>axon-bom</artifactId>-->
-<!--                <version>4.10.4</version>-->
-<!--                <type>pom</type>-->
-<!--                <scope>import</scope>-->
-<!--            </dependency>-->
+	<!-- tag::dependencyManagement[] -->
+	<dependencyManagement>
+		<dependencies>
+			<!-- tag::deps-axon-bom[] -->
+			<!--            <dependency>-->
+			<!--                <groupId>org.axonframework</groupId>-->
+			<!--                <artifactId>axon-bom</artifactId>-->
+			<!--                <version>4.10.4</version>-->
+			<!--                <type>pom</type>-->
+			<!--                <scope>import</scope>-->
+			<!--            </dependency>-->
 			<dependency>
 				<groupId>org.axonframework</groupId>
 				<artifactId>axon-messaging</artifactId>
@@ -79,10 +79,40 @@
 				<version>${axon.version}</version>
 			</dependency>
 			<dependency>
+				<groupId>org.axonframework</groupId>
+				<artifactId>axon-spring</artifactId>
+				<version>${axon.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.axonframework</groupId>
+				<artifactId>axon-configuration</artifactId>
+				<version>${axon.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.axonframework</groupId>
+				<artifactId>axon-disruptor</artifactId>
+				<version>${axon.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.axonframework</groupId>
+				<artifactId>axon-eventsourcing</artifactId>
+				<version>${axon.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.axonframework</groupId>
+				<artifactId>axon-modelling</artifactId>
+				<version>${axon.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.axonframework</groupId>
+				<artifactId>axon-server-connector</artifactId>
+				<version>${axon.version}</version>
+			</dependency>
+			<dependency>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-starter-security</artifactId>
 			</dependency>
-            <!-- end::deps-axon-bom[] -->
+			<!-- end::deps-axon-bom[] -->
 			<!-- tag::deps-axon-firestarter[] -->
 			<dependency>
 				<groupId>org.axonframework.firestarter</groupId>
@@ -91,17 +121,17 @@
 			</dependency>
 			<!-- end::deps-axon-firestarter[] -->
 			<!-- tag::deps-axoniq-console[] -->
-            <dependency>
-                <groupId>io.axoniq.console</groupId>
-                <artifactId>console-framework-client-spring-boot-starter</artifactId>
-                <version>${console-framework-client.version}</version>
-            </dependency>
-            <!-- end::deps-axoniq-console[] -->
-        </dependencies>
-    </dependencyManagement>
-    <!-- end::dependencyManagement[] -->
+			<dependency>
+				<groupId>io.axoniq.console</groupId>
+				<artifactId>console-framework-client-spring-boot-starter</artifactId>
+				<version>${console-framework-client.version}</version>
+			</dependency>
+			<!-- end::deps-axoniq-console[] -->
+		</dependencies>
+	</dependencyManagement>
+	<!-- end::dependencyManagement[] -->
 
-    <!-- tag::dependencies[] -->
+	<!-- tag::dependencies[] -->
 	<dependencies>
 		<!-- tag::deps-springboot-docker-compose[] -->
 		<dependency>
