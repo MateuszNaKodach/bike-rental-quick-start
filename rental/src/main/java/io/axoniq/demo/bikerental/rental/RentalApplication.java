@@ -24,6 +24,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 @EntityScan(basePackageClasses = {BikeStatus.class, SagaEntry.class, TokenEntry.class})
 @SpringBootApplication
@@ -65,6 +66,11 @@ public class RentalApplication {
     public void configureSerializers(ObjectMapper objectMapper) {
         objectMapper.activateDefaultTyping(objectMapper.getPolymorphicTypeValidator(),
                                            ObjectMapper.DefaultTyping.JAVA_LANG_OBJECT);
+    }
+
+    @Bean
+    public ConfigurerModule lifecyclePhaseTimeoutConfigurerModule() {
+        return configurer -> configurer.configureLifecyclePhaseTimeout(20, TimeUnit.SECONDS);
     }
 
     @Bean
