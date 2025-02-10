@@ -38,6 +38,7 @@
         <dependency>
             <groupId>org.axonframework</groupId>
             <artifactId>axon-micrometer</artifactId>
+            <version>${axon.version}</version>
         </dependency>
         <!-- tag::deps-axon-firestarter[] -->
         <dependency>
